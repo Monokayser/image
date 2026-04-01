@@ -75,3 +75,12 @@ Published image name:
 - GitHub repository: this repo
 - Documentation: [docs/PROJECT_DOCUMENTATION.md](docs/PROJECT_DOCUMENTATION.md)
 - Docker image or instructions: Dockerfile + Docker Compose + Docker Hub workflow
+
+## Finalization Helpers
+
+If GitHub login or Docker startup is blocked on this machine, the repo includes helper scripts to finish the last mile after those external prerequisites are fixed:
+
+```powershell
+.\scripts\publish-github.ps1 -Repository "<owner>/<repo-name>"
+.\scripts\run-docker.ps1
+```
