@@ -1,0 +1,16 @@
+/.idea/
+/.vscode/
+/.DS_Store
+Thumbs.db
+
+/backend/target/
+/backend/.m2/
+/backend/.mvn/
+/frontend/node_modules/
+/frontend/dist/
+/frontend/*.tsbuildinfo
+/frontend/*.js
+/frontend/*.d.ts
+
+/.env
+/.docker/

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Management System Documentation</title>
+  <style>
+    :root {
+      --ink: #17324f;
+      --muted: #5d7188;
+      --accent: #0b7c8c;
+      --paper: #ffffff;
+      --line: #d9e3ee;
+      --panel: #f5f9fc;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: #eaf1f6;
+      line-height: 1.55;
+    }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      background: var(--paper);
+      padding: 18mm 16mm;
+    }
+    h1, h2, h3 { margin: 0 0 0.45rem; }
+    h1 {
+      font-size: 28px;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+    h2 {
+      margin-top: 1.2rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid var(--line);
+      font-size: 19px;
+    }
+    h3 {
+      margin-top: 0.9rem;
+      font-size: 15px;
+    }
+    p, li { font-size: 13px; }
+    .lead {
+      color: var(--muted);
+      margin-top: 0.35rem;
+      font-size: 14px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 10px;
+      padding: 10px 12px;
+    }
+    .diagram {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      align-items: center;
+      margin-top: 0.8rem;
+    }
+    .box {
+      border: 1px solid #b8cad9;
+      border-radius: 10px;
+      background: #f8fbfd;
+      padding: 14px 10px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 12px;
+    }
+    .arrow {
+      text-align: center;
+      color: var(--accent);
+      font-size: 22px;
+      font-weight: 700;
+    }
+    ul {
+      margin: 0.3rem 0 0.6rem 1.2rem;
+      padding: 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+      font-size: 12px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 8px 9px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #eef4f8;
+    }
+    .pill {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #dceff2;
+      color: #14455d;
+      font-size: 11px;
+      font-weight: 700;
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+    .footer-note {
+      margin-top: 1.1rem;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: #fff6db;
+      border: 1px solid #f0d78a;
+      font-size: 12px;
+    }
+    @media print {
+      body { background: white; }
+      .page { margin: 0; width: auto; min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>Task Management System</h1>
+    <p class="lead">
+      Group 2 submission for CSE 504: Software Development Methodology. This project delivers a collaborative CRUD-based
+      web application using Java, React, PostgreSQL, Docker, and GitHub Actions CI/CD.
+    </p>
+
+    <h2>1. Objective Mapping</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Selected Topic</h3>
+        <p>Group 2: Task Management System</p>
+      </div>
+      <div class="card">
+        <h3>Assignment Goal</h3>
+        <p>Build a simple CRUD web application with Docker and CI/CD.</p>
+      </div>
+    </div>
+
+    <h2>2. Technical Requirements Alignment</h2>
+    <p>
+      <span class="pill">Java 21</span>
+      <span class="pill">Spring Boot 3</span>
+      <span class="pill">React + TypeScript</span>
+      <span class="pill">PostgreSQL</span>
+      <span class="pill">Docker</span>
+      <span class="pill">GitHub Actions</span>
+    </p>
+
+    <h2>3. Functional Scope</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Module</th>
+          <th>Implemented Features</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Authentication</td>
+          <td>Register, login, logout, session-cookie authentication</td>
+        </tr>
+        <tr>
+          <td>Workspace Collaboration</td>
+          <td>Create workspace, join by invite code, list members</td>
+        </tr>
+        <tr>
+          <td>Task Management</td>
+          <td>Create, view, update, delete tasks with status, priority, assignee, due date</td>
+        </tr>
+        <tr>
+          <td>Board View</td>
+          <td>Kanban columns: TODO, IN_PROGRESS, DONE</td>
+        </tr>
+        <tr>
+          <td>Comments</td>
+          <td>Task discussion thread for collaboration</td>
+        </tr>
+        <tr>
+          <td>Filtering</td>
+          <td>Search, status, priority, assignee, overdue filtering</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>4. Architecture Overview</h2>
+    <div class="diagram">
+      <div class="box">React Frontend</div>
+      <div class="arrow">→</div>
+      <div class="box">Spring Boot REST API</div>
+      <div class="arrow">→</div>
+      <div class="box">PostgreSQL</div>
+    </div>
+    <div class="diagram" style="grid-template-columns: repeat(3, 1fr); margin-top: 10px;">
+      <div class="box">Spring Security Session Auth</div>
+      <div class="box">Service + JPA Layer</div>
+      <div class="box">Flyway Schema Migration</div>
+    </div>
+
+    <h2>5. Data Model</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Entity</th>
+          <th>Main Fields</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>User</td>
+          <td>id, name, email, passwordHash, createdAt</td>
+        </tr>
+        <tr>
+          <td>Workspace</td>
+          <td>id, name, description, inviteCode, createdAt</td>
+        </tr>
+        <tr>
+          <td>WorkspaceMember</td>
+          <td>workspaceId, userId, role, createdAt</td>
+        </tr>
+        <tr>
+          <td>Task</td>
+          <td>id, workspaceId, title, description, status, priority, dueDate, assigneeId, creatorId, createdAt, updatedAt</td>
+        </tr>
+        <tr>
+          <td>Comment</td>
+          <td>id, taskId, authorId, body, createdAt</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>6. API Summary</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Auth</h3>
+        <ul>
+          <li>POST /api/auth/register</li>
+          <li>POST /api/auth/login</li>
+          <li>POST /api/auth/logout</li>
+          <li>GET /api/auth/me</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Workspaces</h3>
+        <ul>
+          <li>GET /api/workspaces</li>
+          <li>POST /api/workspaces</li>
+          <li>POST /api/workspaces/join</li>
+          <li>GET /api/workspaces/{id}/members</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Tasks</h3>
+        <ul>
+          <li>GET /api/workspaces/{id}/tasks</li>
+          <li>POST /api/workspaces/{id}/tasks</li>
+          <li>GET /api/tasks/{id}</li>
+          <li>PUT /api/tasks/{id}</li>
+          <li>DELETE /api/tasks/{id}</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Comments</h3>
+        <ul>
+          <li>GET /api/tasks/{id}/comments</li>
+          <li>POST /api/tasks/{id}/comments</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>7. Docker Requirement</h2>
+    <p>The repository includes a multi-stage Dockerfile and a Docker Compose file for local execution.</p>
+    <ul>
+      <li>Dockerfile builds React, packages Spring Boot, and creates a runtime image</li>
+      <li>docker-compose.yml starts the application container and PostgreSQL</li>
+    </ul>
+
+    <h2>8. CI/CD Requirement</h2>
+    <ul>
+      <li><strong>CI:</strong> install frontend dependencies, run frontend tests, build frontend, run backend tests</li>
+      <li><strong>CD:</strong> build Docker image on main and publish to Docker Hub</li>
+    </ul>
+
+    <h2>9. Verification Status</h2>
+    <ul>
+      <li>Frontend tests passed</li>
+      <li>Frontend production build passed</li>
+      <li>Backend integration tests passed</li>
+      <li>Backend jar packaging passed</li>
+      <li>Docker Desktop requires a WSL update before the container stack can run on this machine</li>
+    </ul>
+
+    <h2>10. Submission Artifacts</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Artifact</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>GitHub Repository</td>
+          <td>Project is prepared for repository submission</td>
+        </tr>
+        <tr>
+          <td>Documentation PDF</td>
+          <td>Generated from this HTML document</td>
+        </tr>
+        <tr>
+          <td>Docker Image / Instructions</td>
+          <td>Dockerfile, Compose, and Docker Hub workflow included</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="footer-note">
+      Note: Docker runtime validation is blocked by a machine-level WSL update requirement. The application code, tests,
+      packaged backend jar, and container configuration are already prepared.
+    </div>
+  </div>
+</body>
+</html>
