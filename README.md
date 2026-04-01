@@ -18,12 +18,13 @@ Group 2 full-stack project for **CSE 504: Software Development Methodology**. Th
 - Filters for status, priority, assignee, overdue tasks, and keyword search
 - Dashboard counters for total, overdue, completed, and assigned tasks
 
-## Project Structure
+## Submission Package
 
-- [backend](backend)
-- [frontend](frontend)
-- [.github/workflows](.github/workflows)
-- [docs/PROJECT_DOCUMENTATION.md](docs/PROJECT_DOCUMENTATION.md)
+This GitHub repository contains the assignment-ready submission package:
+
+- `Task-Management-System-source.zip`: complete project source code
+- `docs/Task_Management_System_Documentation.pdf`: documentation PDF
+- local Docker deployment has been verified successfully at `http://localhost:8080`
 
 ## Local Development
 
@@ -63,24 +64,3 @@ Docker Hub workflow secrets required:
 
 - `DOCKERHUB_USERNAME`
 - `DOCKERHUB_TOKEN`
-
-Published image name:
-
-```text
-<dockerhub-username>/task-management-system
-```
-
-## Submission Checklist
-
-- GitHub repository: this repo
-- Documentation: [docs/PROJECT_DOCUMENTATION.md](docs/PROJECT_DOCUMENTATION.md)
-- Docker image or instructions: Dockerfile + Docker Compose + Docker Hub workflow
-
-## Finalization Helpers
-
-If GitHub login or Docker startup is blocked on this machine, the repo includes helper scripts to finish the last mile after those external prerequisites are fixed:
-
-```powershell
-.\scripts\publish-github.ps1 -Repository "<owner>/<repo-name>"
-.\scripts\run-docker.ps1
-```
