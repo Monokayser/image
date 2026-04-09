@@ -1,0 +1,12 @@
+.git/
+.github/
+backend/
+docs/
+scripts/
+frontend/dist/
+frontend/node_modules/
+Task-Management-System-source.zip
+github-tree.json
+tracked-files.txt
+docker-compose.yml
+Dockerfile

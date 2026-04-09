@@ -1,0 +1,2 @@
+﻿65ee84f (HEAD -> main) Add finalization helper scripts
+a118fbc Initial Task Management System implementation

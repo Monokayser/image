@@ -59,6 +59,12 @@ Frontend URL: `http://localhost:5173`
 - `ci.yml` runs frontend tests, frontend build, and backend tests
 - `docker-publish.yml` publishes a Docker image to Docker Hub from `main`
 
+## Public Hosting Notes
+
+- Netlify can host the React frontend
+- The Spring Boot + PostgreSQL backend must be hosted separately
+- Netlify deployment notes: [docs/NETLIFY_DEPLOYMENT.md](docs/NETLIFY_DEPLOYMENT.md)
+
 Docker Hub workflow secrets required:
 
 - `DOCKERHUB_USERNAME`

@@ -29,17 +29,19 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
 
     public AuthUserResponse register(RegisterRequest request, HttpServletRequest httpRequest) {
-        if (appUserRepository.findByEmailIgnoreCase(request.email()).isPresent()) {
+        String normalizedEmail = request.email().trim().toLowerCase();
+
+        if (appUserRepository.findByEmailIgnoreCase(normalizedEmail).isPresent()) {
             throw new BadRequestException("Email is already in use");
         }
 
         AppUser user = new AppUser();
         user.setName(request.name().trim());
-        user.setEmail(request.email().trim().toLowerCase());
+        user.setEmail(normalizedEmail);
         user.setPasswordHash(passwordEncoder.encode(request.password()));
         appUserRepository.save(user);
 
-        authenticate(user.getEmail(), request.password(), httpRequest);
+        authenticate(normalizedEmail, request.password(), httpRequest);
         return AuthUserResponse.from(user);
     }
 

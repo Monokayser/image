@@ -18,6 +18,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   const refreshUser = async () => {
+    setLoading(true);
     try {
       const me = await api.get<User>("/api/auth/me");
       setUser(me);
@@ -33,13 +34,23 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const login = async (email: string, password: string) => {
-    const me = await api.post<User>("/api/auth/login", { email, password });
-    setUser(me);
+    setLoading(true);
+    try {
+      const me = await api.post<User>("/api/auth/login", { email, password });
+      setUser(me);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const register = async (name: string, email: string, password: string) => {
-    const me = await api.post<User>("/api/auth/register", { name, email, password });
-    setUser(me);
+    setLoading(true);
+    try {
+      const me = await api.post<User>("/api/auth/register", { name, email, password });
+      setUser(me);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const logout = async () => {

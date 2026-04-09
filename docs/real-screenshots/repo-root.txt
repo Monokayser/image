@@ -1,0 +1,23 @@
+﻿
+Mode   LastWriteTime        Length Name                             
+----   -------------        ------ ----                             
+d--h-- 4/9/2026 1:35:14 AM         .git                             
+d----- 4/2/2026 12:49:45 AM        .github                          
+d----- 4/2/2026 1:17:01 AM         backend                          
+d----- 4/9/2026 2:03:44 AM         docs                             
+d----- 4/9/2026 1:35:12 AM         frontend                         
+d----- 4/9/2026 1:59:10 AM         presentation images              
+d----- 4/2/2026 1:59:35 AM         scripts                          
+-a---- 4/2/2026 12:57:15 AM 75     .dockerignore                    
+-a---- 4/2/2026 1:39:53 AM  199    .gitignore                       
+-a---- 4/9/2026 1:10:26 AM  176    .netlifyignore                   
+-a---- 4/2/2026 12:57:15 AM 692    docker-compose.yml               
+-a---- 4/2/2026 12:57:15 AM 641    Dockerfile                       
+-a---- 4/2/2026 2:57:33 AM  259882 github-tree.json                 
+-a---- 4/9/2026 12:39:09 AM 90     netlify.toml                     
+-a---- 4/9/2026 12:39:09 AM 2444   README.md                        
+-a---- 4/2/2026 2:48:00 AM  163358 Task-Management-System-source.zip
+-a---- 4/2/2026 2:57:24 AM  4379   tracked-files.txt                
+
+
+

@@ -120,4 +120,59 @@ class WorkflowIntegrationTest {
             .andExpect(status().isOk())
             .andExpect(jsonPath("$[0].body").value("Board is ready for review."));
     }
+
+    @Test
+    void duplicateEmailIsRejectedCaseInsensitively() throws Exception {
+        mockMvc.perform(post("/api/auth/register")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("""
+                    {
+                      "name": "First User",
+                      "email": "member@example.com",
+                      "password": "secret123"
+                    }
+                    """))
+            .andExpect(status().isOk());
+
+        mockMvc.perform(post("/api/auth/register")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("""
+                    {
+                      "name": "Second User",
+                      "email": "MEMBER@example.com",
+                      "password": "secret123"
+                    }
+                    """))
+            .andExpect(status().isBadRequest())
+            .andExpect(jsonPath("$.message").value("Email is already in use"));
+    }
+
+    @Test
+    void resetEndpointClearsUsersAndAllowsFreshRegistration() throws Exception {
+        mockMvc.perform(post("/api/auth/register")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("""
+                    {
+                      "name": "Reset User",
+                      "email": "reset@example.com",
+                      "password": "secret123"
+                    }
+                    """))
+            .andExpect(status().isOk());
+
+        mockMvc.perform(post("/api/system/reset"))
+            .andExpect(status().isNoContent());
+
+        mockMvc.perform(post("/api/auth/register")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("""
+                    {
+                      "name": "Reset User Again",
+                      "email": "reset@example.com",
+                      "password": "secret123"
+                    }
+                    """))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.email").value("reset@example.com"));
+    }
 }

@@ -8,9 +8,15 @@ Thumbs.db
 /backend/.mvn/
 /frontend/node_modules/
 /frontend/dist/
+/frontend/.netlify/
 /frontend/*.tsbuildinfo
 /frontend/*.js
 /frontend/*.d.ts
 
 /.env
 /.docker/
+/artifacts/
+/DOCKER IMAGES/
+/Task-Management-System-source.zip
+/github-tree.json
+/tracked-files.txt

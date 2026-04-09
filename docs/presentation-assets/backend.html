@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Backend Overview</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="frame">
+      <div class="topbar">
+        <div>
+          <span class="eyebrow">Member 2 • Backend Developer</span>
+          <h1>Backend Development Screenshot</h1>
+          <div class="subtitle">
+            Spring Boot API, PostgreSQL, session-based authentication, workspace collaboration, task CRUD, and comment endpoints.
+          </div>
+        </div>
+        <div class="tag-row">
+          <div class="tag">Java 21</div>
+          <div class="tag">Spring Boot 3</div>
+          <div class="tag">PostgreSQL</div>
+          <div class="tag">Flyway</div>
+          <div class="tag">Spring Security</div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="panel">
+          <h2 class="section-title">Main Backend Responsibilities</h2>
+          <div class="list">
+            <div class="list-item">
+              <div class="badge">1</div>
+              <div>
+                <div class="item-title">Create API Routes</div>
+                <div class="item-body">Built auth, workspace, task, comment, and reset controllers for the full app flow.</div>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="badge">2</div>
+              <div>
+                <div class="item-title">Connect Database</div>
+                <div class="item-body">Configured PostgreSQL, JPA repositories, and Flyway migrations to persist all team data.</div>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="badge">3</div>
+              <div>
+                <div class="item-title">Implement CRUD Logic</div>
+                <div class="item-body">Handled create, read, update, and delete for tasks, with comments, member checks, and validation.</div>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="badge">4</div>
+              <div>
+                <div class="item-title">Test APIs</div>
+                <div class="item-body">Verified auth, workspace, task workflow, and comments through automated backend testing.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-note">
+            Key files: AuthController.java, WorkspaceController.java, TaskController.java, SecurityConfig.java, application.yml
+          </div>
+        </div>
+
+        <div class="code-panel">
+          <div class="code-header">
+            <strong>REST API Snapshot</strong>
+            <span>backend/src/main/java/.../controller</span>
+          </div>
+<pre>POST /api/auth/register
+POST /api/auth/login
+GET  /api/auth/me
+POST /api/auth/logout
+
+GET  /api/workspaces
+POST /api/workspaces
+POST /api/workspaces/join
+GET  /api/workspaces/{id}/members
+
+GET  /api/workspaces/{id}/tasks
+POST /api/workspaces/{id}/tasks
+PUT  /api/tasks/{id}
+DELETE /api/tasks/{id}
+GET  /api/tasks/{id}/comments
+POST /api/tasks/{id}/comments
+
+POST /api/system/reset</pre>
+        </div>
+      </div>
+    </div>
+  </body>
+  </html>

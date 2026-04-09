@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Docker Overview</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="frame">
+      <div class="topbar">
+        <div>
+          <span class="eyebrow">Member 4 • DevOps / Docker / CI-CD</span>
+          <h1>Docker & Deployment Screenshot</h1>
+          <div class="subtitle">
+            Multi-stage Docker build, docker-compose orchestration, and automated build pipeline setup for the full-stack application.
+          </div>
+        </div>
+        <div class="tag-row">
+          <div class="tag">Dockerfile</div>
+          <div class="tag">docker-compose</div>
+          <div class="tag">GitHub Actions</div>
+          <div class="tag">Docker Hub</div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="code-panel">
+          <div class="code-header">
+            <strong>Docker Pipeline</strong>
+            <span>Dockerfile + docker-compose</span>
+          </div>
+<pre>Frontend Build Stage
+  node:20-alpine
+  npm install
+  npm run build
+
+Backend Build Stage
+  maven:3.9.9-eclipse-temurin-21
+  mvn dependency:go-offline
+  mvn clean package -DskipTests
+
+Runtime Stage
+  eclipse-temurin:21-jre-alpine
+  java -jar app.jar
+
+docker-compose
+  postgres service
+  app service
+  shared environment variables</pre>
+        </div>
+
+        <div class="panel">
+          <h2 class="section-title">DevOps Responsibilities</h2>
+          <div class="list">
+            <div class="list-item">
+              <div class="badge">1</div>
+              <div>
+                <div class="item-title">Write Dockerfile</div>
+                <div class="item-body">Combined frontend build output with backend packaging in a clean multi-stage image.</div>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="badge">2</div>
+              <div>
+                <div class="item-title">Write docker-compose</div>
+                <div class="item-body">Connected PostgreSQL and the Spring Boot app for local team testing and demos.</div>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="badge">3</div>
+              <div>
+                <div class="item-title">Set up GitHub Actions</div>
+                <div class="item-body">Automated frontend tests, frontend build, backend tests, and Docker publishing.</div>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="badge">4</div>
+              <div>
+                <div class="item-title">Make Sure App Builds Automatically</div>
+                <div class="item-body">Protected the team from broken merges by validating changes on every push and PR.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  </html>

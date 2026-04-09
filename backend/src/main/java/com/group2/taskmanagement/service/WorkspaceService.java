@@ -37,10 +37,11 @@ public class WorkspaceService {
 
     public WorkspaceSummaryResponse createWorkspace(CreateWorkspaceRequest request, AppUserPrincipal principal) {
         AppUser user = getUser(principal.getId());
+        String description = normalizeNullable(request.description());
 
         Workspace workspace = new Workspace();
         workspace.setName(request.name().trim());
-        workspace.setDescription(request.description() != null ? request.description().trim() : null);
+        workspace.setDescription(description);
         workspace.setInviteCode(generateInviteCode());
         workspaceRepository.save(workspace);
 
@@ -98,5 +99,12 @@ public class WorkspaceService {
 
     private String generateInviteCode() {
         return UUID.randomUUID().toString().replace("-", "").substring(0, 8).toUpperCase();
+    }
+
+    private String normalizeNullable(String value) {
+        if (value == null || value.isBlank()) {
+            return null;
+        }
+        return value.trim();
     }
 }

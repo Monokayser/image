@@ -1,0 +1,37 @@
+﻿ M README.md
+ M backend/src/main/java/com/group2/taskmanagement/config/SecurityConfig.java
+ M backend/src/main/java/com/group2/taskmanagement/service/AuthService.java
+ M backend/src/main/java/com/group2/taskmanagement/service/WorkspaceService.java
+ M backend/src/main/resources/application.yml
+ M backend/src/test/java/com/group2/taskmanagement/WorkflowIntegrationTest.java
+ M frontend/src/api.ts
+ M frontend/src/components/TaskColumn.tsx
+ M frontend/src/components/TaskModal.tsx
+ M frontend/src/context/AuthContext.tsx
+ M frontend/src/main.tsx
+ M frontend/src/pages/AuthPage.tsx
+ M frontend/src/pages/BoardPage.tsx
+ M frontend/src/pages/WorkspacePage.tsx
+ M frontend/src/styles.css
+?? .netlifyignore
+?? Task-Management-System-source.zip
+?? backend/src/main/java/com/group2/taskmanagement/controller/SystemController.java
+?? backend/src/main/java/com/group2/taskmanagement/service/SystemService.java
+?? docs/NETLIFY_DEPLOYMENT.md
+?? docs/presentation-assets/
+?? docs/real-screenshots/
+?? frontend/.env.example
+?? frontend/.netlify/
+?? frontend/src/components/AppSidebar.tsx
+?? frontend/src/components/AppTopbar.tsx
+?? frontend/src/components/ui/
+?? frontend/src/demoBackend.test.ts
+?? frontend/src/demoBackend.ts
+?? frontend/src/styles-dashboard.css
+?? frontend/src/theme.ts
+?? frontend/src/utils/format.ts
+?? frontend/src/utils/resetApp.ts
+?? github-tree.json
+?? netlify.toml
+?? "presentation images/"
+?? tracked-files.txt

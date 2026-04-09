@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>CI/CD Overview</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="frame">
+      <div class="topbar">
+        <div>
+          <span class="eyebrow">GitHub Actions</span>
+          <h1>CI/CD Workflow Screenshot</h1>
+          <div class="subtitle">
+            The repository automatically validates frontend and backend changes, then publishes Docker images from the main branch.
+          </div>
+        </div>
+        <div class="tag-row">
+          <div class="tag">ci.yml</div>
+          <div class="tag">docker-publish.yml</div>
+          <div class="tag">Build + Test</div>
+          <div class="tag">Publish Image</div>
+        </div>
+      </div>
+
+      <div class="split">
+        <div class="code-panel">
+          <div class="code-header">
+            <strong>CI Workflow</strong>
+            <span>.github/workflows/ci.yml</span>
+          </div>
+<pre>on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+steps:
+  checkout
+  setup-java 21
+  setup-node 20
+  npm install
+  npm run test
+  npm run build
+  mvn test</pre>
+        </div>
+        <div class="code-panel">
+          <div class="code-header">
+            <strong>Docker Publish Workflow</strong>
+            <span>.github/workflows/docker-publish.yml</span>
+          </div>
+<pre>on:
+  push:
+    branches: ["main"]
+    tags: ["v*"]
+
+steps:
+  checkout
+  setup-buildx
+  docker login
+  extract metadata
+  build and push image</pre>
+        </div>
+      </div>
+    </div>
+  </body>
+  </html>
